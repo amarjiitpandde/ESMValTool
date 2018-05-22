@@ -1,21 +1,22 @@
 SOURCE: CMIP5
 !============
-variable_entry:    sfcWind
+variable_entry:    swcre
 !============
 modeling_realm:    atmos
 !----------------------------------
 ! Variable attributes:
 !----------------------------------
-standard_name:     wind_speed
-units:             m s-1
+standard_name:     toa_shortwave_cloud_radiative_effect
+units:             W m-2
 cell_methods:      time: mean
-long_name:         Near-Surface Wind Speed
-comment:           This is the mean of the speed, not the speed computed from the mean u and v components of wind
+cell_measures:     area: areacella
+long_name:         TOA Shortwave Cloud Radiative Effect
+comment:           at the top of the atmosphere (to be compared with satellite measurements)
 !----------------------------------
 ! Additional variable information:
 !----------------------------------
-dimensions:        longitude latitude time height10m
-out_name:          sfcWind
+dimensions:        longitude latitude time
 type:              real
+positive:          up
 !----------------------------------
 !

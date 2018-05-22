@@ -1226,6 +1226,7 @@ diagnostics:
         normalization: [centered_median] # Normalization ('mean', 'median', 'centered_median', 'none')
 
 
+<<<<<<< HEAD
 ### rlut: ALL-SKY LONGWAVE RADIATION #################################################################################################################
 
   rlut:
