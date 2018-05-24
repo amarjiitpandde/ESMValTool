@@ -120,7 +120,7 @@ preprocessors:
       statistics: [mean, median]
       exclude: [reference_model, alternative_model]
 
-  ppNOLEV_1x1:
+  ppNOLEV1x1:
     regrid:
       target_grid: 1x1
       scheme: linear
@@ -131,7 +131,7 @@ preprocessors:
       statistics: [mean, median]
       exclude: [reference_model, alternative_model]      
 
-  ppNOLEV_pr:
+  ppNOLEVpr:
     regrid:
       target_grid: GPCP-SG
       scheme: linear
@@ -142,9 +142,9 @@ preprocessors:
       statistics: [mean, median]
       exclude: [reference_model]
 
-  ppNOLEV_clt:
+  ppNOLEVclt:
     regrid:
-      target_grid: ERACCI-CLOUD
+      target_grid: ESACCI-CLOUD
       scheme: linear
     mask_fillvalues:
       threshold_fraction: 0.95
@@ -153,7 +153,7 @@ preprocessors:
       statistics: [mean, median]
       exclude: [reference_model, alternative_model]
       
-  ppNOLEV_rad:
+  ppNOLEVrad:
     regrid:
       target_grid: CERES-EBAF
       scheme: linear
@@ -400,6 +400,7 @@ diagnostics:
       cycle:
         <<: *cycle_settings
 
+
   ta5:
     description: Air temperature at 5 hPa global.
     variables:
@@ -465,7 +466,8 @@ diagnostics:
     scripts:
       cycle:
         <<: *cycle_settings
-        
+
+
   taZONAL:
     description: Air temperature zonal mean
     variables:
@@ -1034,7 +1036,7 @@ diagnostics:
     description: Sea-surface (skin) temperature
     variables:
       ts:
-        preprocessor: ppNOLEV_1x1
+        preprocessor: ppNOLEV1x1
         reference_model: ESACCI-SST
         alternative_model: HadISST
         mip: Amon
@@ -1097,7 +1099,7 @@ diagnostics:
     description: Precipitations
     variables:
       pr:
-        preprocessor: ppNOLEV_pr
+        preprocessor: ppNOLEVpr
         reference_model: GPCP-SG
         mip: Amon
         field: T2Ms
@@ -1165,7 +1167,7 @@ diagnostics:
     description: Total cloud cover
     variables:
       clt:
-        preprocessor: ppNOLEV_clt
+        preprocessor: ppNOLEVclt
         reference_model: ESACCI-CLOUD
         alternative_model: PATMOS
         mip: Amon
@@ -1226,14 +1228,13 @@ diagnostics:
         normalization: [centered_median] # Normalization ('mean', 'median', 'centered_median', 'none')
 
 
-<<<<<<< HEAD
 ### rlut: ALL-SKY LONGWAVE RADIATION #################################################################################################################
 
   rlut:
     description: All-sky longwave radiation
     variables:
       rlut:
-        preprocessor: ppNOLEV_rad
+        preprocessor: ppNOLEVrad
         reference_model: CERES-EBAF
         mip: Amon
         field: T2Ms
@@ -1294,7 +1295,7 @@ diagnostics:
     description: All-sky longwave radiation
     variables:
       rsut:
-        preprocessor: ppNOLEV_rad
+        preprocessor: ppNOLEVrad
         reference_model: CERES-EBAF
         mip: Amon
         field: T2Ms
